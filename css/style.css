@@ -13,16 +13,285 @@
 	--fw-400: 400;
 	--fw-500: 500;
 	--fw-700: 700;
-	--text-sm: 0.9rem;
-	--text-md: 1rem;
-	--text-lg: 2rem;
 }
 
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+	border: none;
+	list-style: none;
+	text-decoration: none;
+}
+
+body {
+	min-height: 99vh;
+	font-family: var(--family-league-spartan);
+	background-image: url(../images/bg-pattern-top-desktop.svg), url(../images/bg-pattern-bottom-desktop.svg);
+	background-position: top left, bottom right;
+	background-repeat: no-repeat, no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+main {
+	margin: auto;
+	width: 90%;
+	max-width: 70rem;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	row-gap: 7ch;
+}
+
+/* Intro */
+.intro {
+	grid-row: 1;
+	grid-column: 1;
+	width: 70%;
+	margin-top: 0.7rem;
+}
+
+.intro--dark-magenta {
+	color: var(--primary-very-dark-magenta);
+}
+
+.intro--gray-magenta {
+	color: var(--neutral-dark-grayish-magenta);
+}
+
+.intro__title {
+	font-size: 3.5rem;
+	font-weight: var(--fw-700);
+	margin-bottom: 2rem;
+}
+
+.intro__desc {
+	font-size: 1rem;
+	font-weight: var(--fw-500);
+	line-height: 1.5rem;
+}
+
+/* Rating */
+.rating {
+	grid-row: 1;
+	grid-column: 2;
+	margin-left: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	gap: 1rem;
+}
+
+.rating--dark-magenta {
+	color: var(--primary-very-dark-magenta);
+}
+
+.rating__card {
+	display: flex;
+	align-items: center;
+	width: 67%;
+	gap: 0.5rem;
+	background-color: var(--neutral-light-grayish-magenta);
+	padding: 1.2rem;
+	border-radius: 10px;
+}
+
+.rating__card-stars {
+	margin-left: 1rem;
+}
+
+.rating__card-stars img {
+	width: 15%;
+	padding-right: 0.1rem;
+}
+
+.rating__card-desc {
+	font-size: 0.9rem;
+	font-weight: var(--fw-700);
+}
+
+.rating__card:nth-child(2) {
+	align-self: center;
+}
+
+.rating__card:nth-child(3) {
+	align-self: flex-end;
+}
+
+/* Review */
+.review {
+	grid-row: 2;
+	grid-column: 1 / span 2;
+	display: flex;
+	gap: 1.5rem;
+}
+
+.review--dark-magenta {
+	background-color: var(--primary-very-dark-magenta);
+}
+
+.review--white {
+	color: var(--neutral-white);
+}
+
+.review--soft-pink {
+	color: var(--primary-soft-pink);
+}
+
+.review__card {
+	padding: 2.3rem;
+	border-radius: 10px;
+}
+
+.review__card-header {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.review__card-header img {
+	width: 14%;
+	border-radius: 50%;
+}
+
+.review__card-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.review__card-name {
+	font-size: 1rem;
+	font-weight: var(--fw-500);
+}
+
+.review__card-category {
+	font-size: 0.9rem;
+	font-weight: var(--fw-400);
+}
+
+.review__card-body {
+	margin-top: 2rem;
+}
+
+.review__card-body p {
+	font-size: 0.9rem;
+	font-weight: var(--fw-400);
+	line-height: 1.4rem;
+}
+
+.review__card:first-child {
+	align-self: flex-start;
+}
+
+.review__card:nth-child(2) {
+	align-self: center;
+}
+
+.review__card:nth-child(3) {
+	align-self: flex-end;
+}
+
+/* Attribution */
 .attribution {
 	font-size: 11px;
 	text-align: center;
 }
 
 .attribution a {
-	color: hsl(228, 45%, 44%);
+	color: var(--primary-soft-pink);
+}
+
+.attribution a:hover {
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 990px) {
+	body {
+		background-image: url(../images/bg-pattern-top-mobile.svg), url(../images/bg-pattern-bottom-mobile.svg);
+		background-position: top, bottom;
+		background-repeat: no-repeat, no-repeat;
+	}
+
+	main {
+		margin: 2rem 0;
+		width: 85%;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+		row-gap: 6ch;
+	}
+
+	.intro {
+		grid-row: 1;
+		grid-column: 1;
+		text-align: center;
+		width: 100%;
+	}
+
+	.intro__title {
+		font-size: 2.5rem;
+	}
+
+	.intro__desc {
+		font-size: 1.1rem;
+	}
+
+	.rating {
+		grid-row: 2;
+		grid-column: 1;
+		margin-left: 0;
+	}
+
+	.rating__card {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.rating__card-stars img {
+		width: 17%;
+	}
+
+	.rating__card-desc {
+		font-size: 1.1rem;
+	}
+
+	.review {
+		grid-row: 3;
+		grid-column: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.review__card {
+		padding: 2rem;
+	}
+
+	.review__card-header img {
+		width: 16%;
+	}
+
+	.review__card-name {
+		font-size: 1.1rem;
+	}
+
+	.review__card-category {
+		font-size: 1rem;
+	}
+
+	.review__card-body {
+		margin-top: 1.5rem;
+	}
+
+	.review__card-body p {
+		font-size: 0.95rem;
+	}
 }
